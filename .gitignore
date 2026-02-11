@@ -1,0 +1,17 @@
+# System
+.DS_Store
+Thumbs.db
+.idea
+.vscode
+
+# Dependencies
+node_modules
+/backend/node_modules
+
+# Environment Variables
+.env
+backend/.env
+
+# Build Output
+dist
+build
