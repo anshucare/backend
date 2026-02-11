@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshu Care | Nature care - Ayurvedic & Herbal Products</title>
+    <meta name="description"
+        content="Anshu Care provides premium ayurvedic and herbal products for skin, hair, and wellness. Embrace the wisdom of nature.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">
+            <div>Anshu<span>Care</span></div>
+            <span class="tagline" id="nav-tagline">Luxury Inspired by Nature</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+            <a href="signin.html" id="nav-signin-tab">Sign In</a>
+            <a href="signup.html" id="nav-signup-tab" style="color: var(--primary); font-weight: 700;">Join Us</a>
+        </div>
+        <div class="nav-actions">
+            <!-- Dynamic Actions (will be updated by main.js) -->
+            <a href="#" class="btn cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i
+                    class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <span
+                style="color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem;">Luxury
+                Inspired by Nature</span>
+            <h1>Nature care <br>for your Soul</h1>
+            <p>Experience the purity of ancient Ayurveda with Anshu Care. Our handcrafted herbal solutions bring you the
+                best of nature for holistic wellness.</p>
+            <div class="hero-btns">
+                <a href="products.html" class="btn">Explore Products</a>
+                <a href="#about"
+                    style="margin-left: 1.5rem; text-decoration: none; color: var(--primary); font-weight: 600;">Learn
+                    More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Herbal Ingredients" class="hero-img-main">
+        </div>
+        <div class="hero-visual"></div>
+    </header>
+
+    <section id="features-container"
+        style="padding: 4rem 5%; background: var(--secondary); display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem; color: var(--primary);">
+        <!-- Dynamic Features Injected Here -->
+    </section>
+
+    <section class="categories" id="products">
+        <div class="section-header">
+            <h2 id="categories-title">Our Pure Essentials</h2>
+            <p id="categories-subtitle">Carefully formulated products for every part of your beauty ritual.</p>
+        </div>
+
+        <div class="category-grid" id="home-categories-grid">
+            <!-- Dynamic Home Categories Injected Here -->
+        </div>
+    </section>
+
+    <section id="featured" style="padding: 8rem 5%;">
+        <div class="section-header">
+            <h2 id="best-sellers-title">Best Sellers</h2>
+            <p id="best-sellers-subtitle">Discover our most loved herbal creations.</p>
+        </div>
+        <div class="product-grid" id="home-best-sellers">
+            <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                            alt="Face Oil" class="product-img">
+                        <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="product-info">
+                        <h4>Radiance Face Oil</h4>
+                        <span class="price">₹890</span>
+                    </div>
+                </div>
+            </a>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1601049676098-94d13f1c1071?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Hair Tonic" class="product-img">
+                    <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="product-info">
+                    <h4>Brahmi Hair Tonic</h4>
+                    <span class="price">₹650</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1559181567-c3190ca9959b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Body Wash" class="product-img">
+                    <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="product-info">
+                    <h4>Neem & Tulsi Wash</h4>
+                    <span class="price">₹450</span>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Lip Balm" class="product-img">
+                    <button class="add-to-cart"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="product-info">
+                    <h4>Herbal Lip Butter</h4>
+                    <span class="price">₹280</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 5rem 5%; background: var(--white);" id="about">
+        <div style="display: flex; align-items: center; gap: 4rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="https://images.unsplash.com/photo-1512850183-6d7990f42385?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                    alt="Herbs" style="width: 100%; border-radius: 24px; box-shadow: var(--shadow);">
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h2 id="about-title" style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary);">Rooted in
+                    Tradition, Crafted
+                    for Today</h2>
+                <p id="about-text-1" style="margin-bottom: 1.5rem; font-size: 1.1rem; color: #555;">Anshu Care was born
+                    from a simple
+                    belief: Nature has all the answers. Our journey started in the heart of traditional Ayurvedic
+                    practices, where we discovered the transformative power of botanical extracts.</p>
+                <p id="about-text-2" style="margin-bottom: 2rem; font-size: 1.1rem; color: #555;">Each product in our
+                    collection is a
+                    tribute to the earth, crafted with 100% natural ingredients, zero harsh chemicals, and a promise of
+                    purity.</p>
+                <a href="about.html" class="btn">Discover Our Story</a>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 8rem 5%; background: #f0f2ea;">
+        <div class="section-header">
+            <h2 id="testimonials-title">What Our Clients Say</h2>
+            <p id="testimonials-desc">Real stories from people who embrace Nature care.</p>
+        </div>
+        <div id="testimonials-container"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <!-- Dynamic Testimonials Injected Here -->
+        </div>
+    </section>
+
+    <section style="padding: 8rem 5%; background: var(--white);" id="contact">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; gap: 4rem; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 id="contact-title" style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary);"></h2>
+                <p id="contact-desc" style="margin-bottom: 2rem; color: #555;"></p>
+
+                <div style="margin-bottom: 2rem;">
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start;">
+                        <i class="fas fa-location-dot"
+                            style="color: var(--accent); font-size: 1.2rem; margin-top: 5px;"></i>
+                        <div>
+                            <strong id="contact-address-label"></strong>
+                            <p id="contact-address" style="color: #777;">
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: flex-start;">
+                        <i class="fas fa-phone" style="color: var(--accent); font-size: 1.2rem; margin-top: 5px;"></i>
+                        <div>
+                            <strong id="contact-phone-label"></strong>
+                            <p id="contact-phone-display" style="color: #777;"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1.5; min-width: 300px;">
+                <form id="contact-form"
+                    style="background: var(--bg-color); padding: 3rem; border-radius: 24px; box-shadow: var(--shadow);">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
+                            <input type="text" placeholder="Your name"
+                                style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none; background: var(--white);">
+                        </div>
+                        <div class="form-group">
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                            <input type="email" placeholder="Your email"
+                                style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none; background: var(--white);">
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Subject</label>
+                        <select
+                            style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none; background: var(--white); appearance: none; -webkit-appearance: none;">
+                            <option>Product Inquiry</option>
+                            <option>Feedback</option>
+                            <option>Bulk Orders</option>
+                            <option>Others</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 2rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                        <textarea rows="5" placeholder="How can we help?"
+                            style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none; background: var(--white); resize: none;"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="#" class="logo"
+                    style="color: var(--white); margin-bottom: 1.5rem; display: block;">Anshu<span>Care</span></a>
+                <p id="footer-description" style="color: #ababab;">Nature care for your holistic wellbeing. Premium
+                    ayurvedic solutions
+                    delivered to your doorstep.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href='terms-conditions.html'>Terms & Conditions</a></li>
+                    <li><a href='refund-policy.html'>Refund Policy</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                    <a href="#" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/917337082606" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved. | <span id="footer-bottom-tagline">Nature care</span></p>
+            <a href="admin-signin.html" style="color: transparent; font-size: 0.1rem; text-decoration: none;">Admin</a>
+        </div>
+    </footer>
+
+
+    <!-- Floating WhatsApp Button (opens chat modal) -->
+    <a href="#" class="whatsapp-float" id="openChatModal">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Chat Modal -->
+    <div id="chatModalBoard" class="chat-modal-board">
+        <div class="chat-modal-header">
+            <span><i class="fab fa-whatsapp"></i> Chat with us</span>
+            <button id="closeChatModal" class="close-chat-modal">&times;</button>
+        </div>
+        <div class="chat-modal-body">
+            <div class="chat-message bot">Hi there! 👋<br>How can we help you today?</div>
+            <div class="chat-message user-input">
+                <input type="text" id="chatUserInput" placeholder="Type your message..." />
+                <button id="sendChatMsg"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <a href="https://wa.me/917337082606" target="_blank"
+                    style="color: #25d366; font-weight: 600; text-decoration: none;">
+                    <i class="fab fa-whatsapp"></i> Continue on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Items will be injected here -->
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

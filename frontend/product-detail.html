@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiance Face Oil | Anshu Care</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-detail {
+            padding: 12rem 5% 8rem;
+            display: flex;
+            gap: 5rem;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-gallery {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .main-img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .product-content {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .product-content h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .product-description {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .meta-tags {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1.2rem;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .qty-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            background: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .qty-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="logo">Anshu<span>Care</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i class="fas fa-shopping-cart"
+                    style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="product-detail">
+        <div class="product-gallery">
+            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                alt="Radiance Face Oil" class="main-img">
+        </div>
+        <div class="product-content">
+            <div class="meta-tags">
+                <span class="tag">Skin Care</span>
+                <span class="tag">100% Organic</span>
+            </div>
+            <h1>Radiance Face Oil</h1>
+            <div class="product-price">₹890.00</div>
+            <p class="product-description">
+                A luxurious blend of cold-pressed pomegranate seed oil, organic saffron, and precious rose otto
+                essential oil. This potent serum deeply nourishes the skin, restores natural glow, and minimizes fine
+                lines. Perfect for all skin types seeking a youthful radiance.
+            </p>
+
+            <div class="quantity-selector">
+                <button class="qty-btn">-</button>
+                <span style="font-size: 1.2rem; font-weight: 600;">1</span>
+                <button class="qty-btn">+</button>
+            </div>
+
+            <div style="display: flex; gap: 1.5rem;">
+                <button class="btn" style="flex: 1; padding: 1.2rem;">Add to Cart</button>
+                <button class="btn" style="flex: 1; padding: 1.2rem; background: var(--accent);">Buy Now</button>
+            </div>
+
+            <div style="margin-top: 4rem; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 2rem;">
+                <h3 style="margin-bottom: 1rem;">Key Ingredients</h3>
+                <ul style="list-style: none; color: #555;">
+                    <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                            style="color: var(--primary); margin-right: 0.5rem;"></i> Organic Saffron</li>
+                    <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                            style="color: var(--primary); margin-right: 0.5rem;"></i> Pomegranate Seed Oil</li>
+                    <li style="margin-bottom: 0.5rem;"><i class="fas fa-check"
+                            style="color: var(--primary); margin-right: 0.5rem;"></i> Vitamin E</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="#" class="logo"
+                    style="color: var(--white); margin-bottom: 1.5rem; display: block;">Anshu<span>Care</span></a>
+                <p style="color: #ababab;">Nature care for your holistic wellbeing. Premium ayurvedic solutions
+                    delivered to your doorstep.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href='terms-conditions.html'>Terms & Conditions</a></li>
+                    <li><a href='refund-policy.html'>Refund Policy</a></li>
+                    <li><a href="sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                    <a href="#" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/917337082606" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/917337082606" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <script src="main.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get('id');
+            // Try matching by ID first, then by name (URL-safe)
+            const product = products.find(p => p.id == productId || p.name == productId || p.name == decodeURIComponent(productId));
+
+            if (!product) {
+                document.querySelector('.product-detail').innerHTML = `
+                    <div style="text-align: center; width: 100%; padding: 5rem 0;">
+                        <h2>Product Sanctuary Not Found</h2>
+                        <p style="margin: 2rem 0; color: #666;">This herbal treasure seems to have vanished into nature.</p>
+                        <a href="products.html" class="btn">Return to Shop</a>
+                    </div>
+                `;
+                return;
+            }
+
+            // Update UI
+            document.title = `${product.name} | Anshu Care`;
+            document.querySelector('.main-img').src = product.image;
+            document.querySelector('.main-img').alt = product.name;
+            document.querySelector('.product-content h1').innerText = product.name;
+            document.querySelector('.product-price').innerText = `₹${product.price}`;
+
+            if (product.description) {
+                document.querySelector('.product-description').innerText = product.description;
+            }
+
+            // Key Ingredients from product data if available
+            const ingredientsList = document.querySelector('.product-content ul');
+            if (product.ingredients && Array.isArray(product.ingredients) && ingredientsList) {
+                ingredientsList.innerHTML = product.ingredients.map(ing => `
+                    <li style="margin-bottom: 0.5rem;"><i class="fas fa-check" style="color: var(--primary); margin-right: 0.5rem;"></i> ${ing}</li>
+                `).join('');
+            }
+
+            // Generate tags based on category
+            const tagContainer = document.querySelector('.meta-tags');
+            tagContainer.innerHTML = `
+                <span class="tag">${product.category.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
+                <span class="tag">100% Organic</span>
+            `;
+
+            // Quantity Logic
+            let qty = 1;
+            const qtyDisplay = document.querySelector('.quantity-selector span');
+            const qtyBtns = document.querySelectorAll('.qty-btn');
+
+            qtyBtns[0].onclick = () => { if (qty > 1) { qty--; qtyDisplay.innerText = qty; } };
+            qtyBtns[1].onclick = () => { qty++; qtyDisplay.innerText = qty; };
+
+            // Button Actions
+            const addBtn = document.querySelectorAll('.product-content .btn')[0];
+            const buyBtn = document.querySelectorAll('.product-content .btn')[1];
+
+            addBtn.onclick = () => {
+                for (let i = 0; i < qty; i++) addToCart(product.id);
+            };
+
+            buyBtn.onclick = () => {
+                const existingItem = cart.find(item => item.id == product.id);
+                if (!existingItem) {
+                    cart.push({ ...product, quantity: qty });
+                } else {
+                    existingItem.quantity += (qty - 0);
+                }
+                localStorage.setItem('anshu-care-cart', JSON.stringify(cart));
+                window.location.href = 'checkout.html';
+            };
+        });
+    </script>
+</body>
+
+</html>

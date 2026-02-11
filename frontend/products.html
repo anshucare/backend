@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop All Products | Anshu Care - Nature care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div>Anshu<span>Care</span></div>
+            <span class="tagline">Luxury Inspired by Nature</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html" class="active">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="signin.html" id="nav-signin-tab">Sign In</a>
+            <a href="signup.html" id="nav-signup-tab" style="color: var(--primary); font-weight: 700;">Join Us</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i
+                    class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="products-layout">
+        <aside class="category-sidebar">
+            <h3>Categories</h3>
+            <ul class="filter-list">
+                <li><a href="#best-sellers" class="active">Best Sellers</a></li>
+                <li><a href="#pure-essentials">Our Pure Essentials</a></li>
+                <li><a href="#body-care">Body Care</a></li>
+                <li><a href="#face-masks">Face Packs & Masks</a></li>
+                <li><a href="#face-oils">Face Oils & Serums</a></li>
+                <li><a href="#gels">Gels</a></li>
+                <li><a href="#soaps">Soaps</a></li>
+                <li><a href="#hair-oils">Hair Care Oils</a></li>
+                <li><a href="#hair-products">Hair Products</a></li>
+                <li><a href="#wellness-rituals">Wellness & Rituals</a></li>
+                <li><a href="#lip-care">Lip Care</a></li>
+                <li><a href="#face-creams">Face Creams</a></li>
+                <li><a href="#makeup">Eye & Makeup</a></li>
+            </ul>
+        </aside>
+
+        <div class="product-listing">
+            <!-- Best Sellers -->
+            <section id="best-sellers" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Best Sellers</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html?id=1" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Kumkumadi Face Oil">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kumkumadi Face Oil</h4>
+                        </a>
+                        <span class="price">₹890</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html?id=2" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="24K Gold Gel">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>24K Gold Gel</h4>
+                        </a>
+                        <span class="price">₹750</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html?id=3" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Ayurvedic Hair Oil">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Premium Hair Oil (All Problems)</h4>
+                        </a>
+                        <span class="price">₹950</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Our Pure Essentials -->
+            <section id="pure-essentials" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Our Pure Essentials</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html?id=4" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Rose Face Wash">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Rose Face Wash (Mild)</h4>
+                        </a>
+                        <span class="price">₹320</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html?id=5" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1590136631351-3ec758652611?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Aloe Vera Gel">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>99% Pure Aloe Vera Gel</h4>
+                        </a>
+                        <span class="price">₹350</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1547793549-7038dd59b5cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Sandalwood Serum">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Sandalwood Face Serum</h4>
+                        </a>
+                        <span class="price">₹950</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Body Care -->
+            <section id="body-care" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Body Care</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Body Scrub">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kumkumadi Body Scrub with Rose Petals</h4>
+                        </a>
+                        <span class="price">₹750</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Body Scrub">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kumkumadi Body Scrub with Tesu Flower</h4>
+                        </a>
+                        <span class="price">₹750</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Face Packs & Masks -->
+            <section id="face-masks" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Face Packs & Masks</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Face Pack">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kumkumadi Face Pack</h4>
+                        </a>
+                        <span class="price">₹520</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Face Oils & Serums -->
+            <section id="face-oils" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Face Oils & Serums</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Face Oil">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kumkumadi Face Oil</h4>
+                        </a>
+                        <span class="price">₹890</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Face Oil">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>24K Gold Face Oil</h4>
+                        </a>
+                        <span class="price">₹1,250</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Serum">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Ayurvedic Anti Acne Face Serum</h4>
+                        </a>
+                        <span class="price">₹750</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Serum">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Ayurvedic Serum for Dry Skin</h4>
+                        </a>
+                        <span class="price">₹750</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Serum">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Ayurvedic Skin Brightening Serum</h4>
+                        </a>
+                        <span class="price">₹780</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Serum">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Ayurvedic Glowing Skin Face Serum</h4>
+                        </a>
+                        <span class="price">₹780</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                alt="Serum">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Ayurvedic Miraculous Beauty</h4>
+                        <span class="price">₹1,100</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80"
+                                alt="Serum">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Sandalwood Face Serum</h4>
+                        <span class="price">₹950</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gels -->
+            <section id="gels" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Gels</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Gel">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kumkumadi Gel</h4>
+                        </a>
+                        <span class="price">₹450</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Gel">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>24K Gold Gel</h4>
+                        </a>
+                        <span class="price">₹750</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Gel">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kesar Haldi Chandan Gel</h4>
+                        </a>
+                        <span class="price">₹480</span>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Gel">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Ayurvedic Neem Tulsi Gel</h4>
+                        </a>
+                        <span class="price">₹380</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Gel">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Ayurvedic Rose Petals Gel</h4>
+                        </a>
+                        <span class="price">₹380</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Orange Peel Gel</h4>
+                        <span class="price">₹380</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Mulethi Gel for Anti-Ageing</h4>
+                        <span class="price">₹520</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Dark Circle Gel</h4>
+                        <span class="price">₹550</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Kumkumadi Multi Herbs Gel</h4>
+                        <span class="price">₹580</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Mulethi Facial Gel</h4>
+                        <span class="price">₹420</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Ingredient Gold Facial Gel</h4>
+                        <span class="price">₹680</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Ayurvedic Facial Gel (D-Tan)</h4>
+                        <span class="price">₹480</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Soaps -->
+            <section id="soaps" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Handcrafted Soaps</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1600857057927-1473136cc172?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Soap">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Kumkumadi Soap</h4>
+                        </a>
+                        <span class="price">₹250</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1600857057927-1473136cc172?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Soap">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Orange Peel Soap</h4>
+                        <span class="price">₹180</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1600857057927-1473136cc172?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Soap">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Kumkumadi Goat Milk Soap</h4>
+                        <span class="price">₹280</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hair Care Oils -->
+            <section id="hair-oils" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Hair Care Oils</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Hair Oil">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Ayurvedic Hair Oil (Growth & Dandruff)</h4>
+                        </a>
+                        <span class="price">₹550</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Hair Oil">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Ayurvedic Hair Oil for Baldness</h4>
+                        <span class="price">₹850</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Hair Oil">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Ayurvedic Hair Oil (Increase Density)</h4>
+                        <span class="price">₹750</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Hair Oil">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Premium Hair Oil (All Problems)</h4>
+                        </a>
+                        <span class="price">₹950</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Hair Oil">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Ayurvedic Hair Oil for Shiny Hairs</h4>
+                        <span class="price">₹580</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hair Products -->
+            <section id="hair-products" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Hair Care Products</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Hair Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Hair Gel Base</h4>
+                        <span class="price">₹350</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Hair Gel">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Anti Hair Fall Gel</h4>
+                        <span class="price">₹450</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Shampoo">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Hibiscus Shampoo</h4>
+                        <span class="price">₹380</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wellness & Rituals -->
+            <section id="wellness-rituals" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Wellness & Rituals</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1547793549-7038dd59b5cf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Nasya Oil">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Pure Nasya Oil for Mental Clarity</h4>
+                        </a>
+                        <span class="price">₹450</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Rose Water">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Premium Kannauj Rose Water</h4>
+                        </a>
+                        <span class="price">₹520</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1590136631351-3ec758652611?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Ubtan">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Tejasvi Ayurvedic Ubtan</h4>
+                        </a>
+                        <span class="price">₹680</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lip Care -->
+            <section id="lip-care" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Lip Care</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Lip Scrub">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Trifla Lip Scrub</h4>
+                        </a>
+                        <span class="price">₹280</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Lip Scrub">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Special Lip Scrub</h4>
+                        <span class="price">₹320</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Lipstick">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Maroon Lipstick</h4>
+                        <span class="price">₹450</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Serum">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Dry Lip Serum</h4>
+                        <span class="price">₹380</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Serum">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Uneven Tone Lip Serum</h4>
+                        <span class="price">₹380</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Lip Gloss">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Lip Gloss (Variants 1, 2, 3)</h4>
+                        <span class="price">₹350</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Lip Balm">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Lip Balm (Variants 1, 2)</h4>
+                        <span class="price">₹150</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Lip Balm">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Lavender Lip Balm</h4>
+                        <span class="price">₹180</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Lip Balm">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Orange Lip Balm</h4>
+                        <span class="price">₹180</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Face Creams & Wash -->
+            <section id="face-creams" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Face Creams & Wash</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Face Cream">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Neem Tulsi Face Cream</h4>
+                        <span class="price">₹450</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Face Cream">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Rose Face Cream</h4>
+                        <span class="price">₹450</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="branded-card">
+                        <div class="product-mockup">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c7c2f1f6c77?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                alt="Face Wash">
+                            <div class="brand-label-overlay">Anshu Care</div>
+                        </div>
+                        <h4>Rose Face Wash (Mild)</h4>
+                        <span class="price">₹320</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Eye & Makeup -->
+            <section id="makeup" style="margin-bottom: 5rem;">
+                <h2 style="margin-bottom: 2rem; color: var(--primary);">Eye & Makeup</h2>
+                <div class="product-grid">
+                    <div class="branded-card">
+                        <a href="product-detail.html" style="text-decoration: none; color: inherit;">
+                            <div class="product-mockup">
+                                <img src="https://images.unsplash.com/photo-1591360236480-9c6a4cb3a6de?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                                    alt="Mascara">
+                                <div class="brand-label-overlay">Anshu Care</div>
+                            </div>
+                            <h4>Eye Mascara</h4>
+                        </a>
+                        <span class="price">₹390</span>
+                        <button class="add-to-cart"
+                            style="position: absolute; bottom: 1.5rem; right: 1.5rem; background: var(--primary); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer;"><i
+                                class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="#" class="logo"
+                    style="color: var(--white); margin-bottom: 1.5rem; display: block;">Anshu<span>Care</span></a>
+                <p style="color: #ababab;">Nature care for your holistic wellbeing. Premium ayurvedic solutions
+                    delivered to your doorstep.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href='terms-conditions.html'>Terms & Conditions</a></li>
+                    <li><a href='refund-policy.html'>Refund Policy</a></li>
+                    <li><a href="sitemap.xml">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                    <a href="#" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/917337082606" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="color: var(--white); transition: var(--transition);"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (opens chat modal) -->
+    <a href="#" class="whatsapp-float" id="openChatModal">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Chat Modal -->
+    <div id="chatModalBoard" class="chat-modal-board">
+        <div class="chat-modal-header">
+            <span><i class="fab fa-whatsapp"></i> Chat with us</span>
+            <button id="closeChatModal" class="close-chat-modal">&times;</button>
+        </div>
+        <div class="chat-modal-body">
+            <div class="chat-message bot">Hi there! 👋<br>How can we help you today?</div>
+            <div class="chat-message user-input">
+                <input type="text" id="chatUserInput" placeholder="Type your message..." />
+                <button id="sendChatMsg"><i class="fas fa-paper-plane"></i></button>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <a href="https://wa.me/917337082606" target="_blank"
+                    style="color: #25d366; font-weight: 600; text-decoration: none;">
+                    <i class="fab fa-whatsapp"></i> Continue on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // Category active state switching on scroll or click
+        const categoryLinks = document.querySelectorAll('.filter-list a');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                categoryLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

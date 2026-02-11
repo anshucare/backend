@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Anshu Care - Join the Sanctuary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12rem 5% 8rem;
+            background: #f8faf7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-card {
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 550px;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .auth-card h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .auth-card p {
+            color: #777;
+            margin-bottom: 3rem;
+        }
+
+        .auth-form {
+            text-align: left;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #fdfdfd;
+            outline: none;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(45, 90, 39, 0.05);
+            background: var(--white);
+        }
+
+        .auth-btn {
+            width: 100%;
+            padding: 1.3rem;
+            border: none;
+            border-radius: 14px;
+            background: var(--primary);
+            color: var(--white);
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(45, 90, 39, 0.15);
+            margin-top: 1rem;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(45, 90, 39, 0.2);
+        }
+
+        .auth-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #f0f0f0;
+            color: #777;
+            font-size: 0.95rem;
+        }
+
+        .auth-footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .terms-text {
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div>Anshu<span>Care</span></div>
+            <span class="tagline">Luxury Inspired by Nature</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i class="fas fa-shopping-cart"
+                    style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="auth-wrapper">
+        <div class="auth-card">
+            <h1>Create Account</h1>
+            <p>Join our sanctuary to track your herbal treasures and receive exclusive wellness tips.</p>
+
+            <form class="auth-form" id="signup-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="Rahul" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Sharma" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="rahul@example.com" required id="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Minimum 8 characters" required minlength="8" id="password">
+                </div>
+
+                <button type="submit" class="auth-btn">Begin Your Journey</button>
+            </form>
+
+            <div class="social-login" style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center;">
+                <div class="social-btn"
+                    style="width: 50px; height: 50px; border-radius: 12px; border: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; color: #555; font-size: 1.2rem; transition: var(--transition); cursor: pointer;">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="social-btn"
+                    style="width: 50px; height: 50px; border-radius: 12px; border: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; color: #555; font-size: 1.2rem; transition: var(--transition); cursor: pointer;">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="social-btn"
+                    style="width: 50px; height: 50px; border-radius: 12px; border: 1px solid #f0f0f0; display: flex; align-items: center; justify-content: center; color: #555; font-size: 1.2rem; transition: var(--transition); cursor: pointer;">
+                    <i class="fab fa-apple"></i>
+                </div>
+            </div>
+
+            <p class="terms-text">By joining, you agree to our <a href="terms-conditions.html"
+                    style="color: var(--primary);">Terms of Service</a> and <a href="privacy-policy.html"
+                    style="color: var(--primary);">Privacy Policy</a>.</p>
+
+            <div class="auth-footer">
+                Already part of the sanctuary? <a href="signin.html">Sign In Here</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const firstName = this.querySelector('input[placeholder="Rahul"]').value;
+            const email = document.getElementById('email').value;
+            const btn = this.querySelector('button');
+
+            btn.innerText = 'Creating Account...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                localStorage.setItem('anshu-care-user', JSON.stringify({ email: email, name: firstName }));
+                window.location.href = 'index.html';
+            }, 1000);
+        });
+
+        // Social Login Simulation
+        document.querySelectorAll('.social-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const provider = this.querySelector('i').className.split('-')[2] || 'Social';
+                const formattedProvider = provider.charAt(0).toUpperCase() + provider.slice(1);
+
+                this.style.opacity = '0.7';
+                this.style.pointerEvents = 'none';
+
+                setTimeout(() => {
+                    localStorage.setItem('anshu-care-user', JSON.stringify({
+                        email: `social@${provider}.com`,
+                        name: `${formattedProvider} Explorer`
+                    }));
+                    window.location.href = 'index.html';
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

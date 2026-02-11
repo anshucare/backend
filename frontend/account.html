@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Anshu Care - Your Sanctuary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .account-layout {
+            padding: 10rem 5% 8rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 4rem;
+        }
+
+        /* Sidebar Styling */
+        .account-sidebar {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .user-mini-profile {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .user-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+
+        .nav-menu {
+            list-style: none;
+        }
+
+        .nav-item {
+            margin-bottom: 0.5rem;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            color: #666;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #f4f7f2;
+            color: var(--primary);
+        }
+
+        .nav-link i {
+            width: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Content Area */
+        .account-content {
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 32px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            min-height: 600px;
+        }
+
+        .tab-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+
+        /* Order Cards Styling (Reuse) */
+        .order-history-card {
+            border: 1px solid #f0f0f0;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+
+        .order-history-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Address Book Styling */
+        .address-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .address-card {
+            border: 2px solid #edeff2;
+            padding: 2rem;
+            border-radius: 20px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .address-card.default {
+            border-color: var(--primary);
+            background: #f8faf7;
+        }
+
+        .address-card h4 {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            font-size: 0.7rem;
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+
+        .address-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-decoration: underline;
+        }
+
+        /* Profile Form Styling */
+        .profile-form {
+            max-width: 600px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            outline: none;
+        }
+
+        /* Modal for Add Address */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        @media (max-width: 992px) {
+            .account-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .account-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div>Anshu<span>Care</span></div>
+            <span class="tagline">Luxury Inspired by Nature</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+        </div>
+        <div class="nav-actions">
+            <!-- Auth injected by main.js -->
+            <a href="#" class="btn" id="cartTrigger" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i
+                    class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="account-layout">
+        <aside class="account-sidebar">
+            <div class="user-mini-profile">
+                <div class="user-avatar" id="avatarIcon">U</div>
+                <h3 id="sidebarName">Username</h3>
+                <p id="sidebarEmail" style="color: #888; font-size: 0.85rem;">user@example.com</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#dashboard" class="nav-link active" onclick="showTab('dashboard')">
+                        <i class="fas fa-th-large"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#orders" class="nav-link" onclick="showTab('orders')">
+                        <i class="fas fa-shopping-bag"></i> My Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#address" class="nav-link" onclick="showTab('address')">
+                        <i class="fas fa-map-marker-alt"></i> Address Book
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#wishlist" class="nav-link" onclick="showTab('wishlist')">
+                        <i class="fas fa-heart"></i> My Wishlist
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#profile" class="nav-link" onclick="showTab('profile')">
+                        <i class="fas fa-user-edit"></i> Profile Settings
+                    </a>
+                </li>
+                <hr style="border: none; border-top: 1px solid #f0f0f0; margin: 1.5rem 0;">
+                <li class="nav-item">
+                    <a href="#" class="nav-link" style="color: #e53e3e;" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <section class="account-content">
+            <!-- Dashboard -->
+            <div id="dashboard" class="tab-section active">
+                <div class="section-header">
+                    <h2>Namaste, <span id="welcomeName">User</span></h2>
+                </div>
+                <p style="color: #666; margin-bottom: 3rem;">From your account dashboard you can view your recent
+                    orders, manage your shipping addresses, and edit your password and account details.</p>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div
+                        style="background: #f8faf7; padding: 2rem; border-radius: 20px; border-left: 5px solid var(--primary);">
+                        <h4 style="margin-bottom: 1rem;"><i class="fas fa-box" style="margin-right: 10px;"></i> Active
+                            Orders</h4>
+                        <p id="activeOrderCount" style="font-size: 2rem; font-weight: 700; color: var(--primary);">0</p>
+                    </div>
+                    <div
+                        style="background: #fdfaf6; padding: 2rem; border-radius: 20px; border-left: 5px solid #d4a373;">
+                        <h4 style="margin-bottom: 1rem;"><i class="fas fa-map-pin" style="margin-right: 10px;"></i>
+                            Saved Addresses</h4>
+                        <p id="savedAddressCount" style="font-size: 2rem; font-weight: 700; color: #d4a373;">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders -->
+            <div id="orders" class="tab-section">
+                <div class="section-header">
+                    <h2>My Orders</h2>
+                </div>
+                <div id="orderHistoryList">
+                    <!-- Orders Injected Here -->
+                    <p style="text-align: center; color: #999; padding: 3rem;">No orders found.</p>
+                </div>
+            </div>
+
+            <!-- Address Book -->
+            <div id="address" class="tab-section">
+                <div class="section-header">
+                    <h2>Address Book</h2>
+                    <button class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;"
+                        onclick="openAddressModal()">+ Add New Address</button>
+                </div>
+                <div class="address-grid" id="addressBookList">
+                    <!-- Addresses Injected Here -->
+                </div>
+            </div>
+
+            <!-- Wishlist -->
+            <div id="wishlist" class="tab-section">
+                <div class="section-header">
+                    <h2>My Wishlist</h2>
+                </div>
+                <div id="wishlistContainer"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 2rem;">
+                    <p style="text-align: center; color: #999; padding: 3rem; grid-column: 1/-1;">Your wishlist is
+                        empty. Start adding some herbal wonders!</p>
+                </div>
+            </div>
+
+            <!-- Profile Settings -->
+            <div id="profile" class="tab-section">
+                <div class="section-header">
+                    <h2>Account Settings</h2>
+                </div>
+                <form class="profile-form" id="updateProfileForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" id="profName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" id="profEmail" readonly style="background: #f5f5f5;">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2rem;">
+                        <label>Current Password</label>
+                        <input type="password" placeholder="••••••••">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 3rem;">
+                        <label>New Password (Optional)</label>
+                        <input type="password" placeholder="Leave blank to keep same">
+                    </div>
+                    <button type="submit" class="btn" style="padding: 1rem 3rem;">Save Changes</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Address Modal -->
+    <div class="modal" id="addressModal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 2rem; color: var(--primary); font-family: 'Playfair Display'; font-size: 1.8rem;">
+                Add Shipping Address</h3>
+            <form id="newAddressForm">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label>House/Street Info</label>
+                    <input type="text" name="house" required>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Pincode</label>
+                        <input type="text" name="pincode" required>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                    <button type="button" class="action-btn" style="text-decoration: none;"
+                        onclick="closeAddressModal()">Cancel</button>
+                    <button type="submit" class="btn" style="padding: 0.8rem 2rem;">Save Address</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Subtotal</span><span id="cartTotal">₹0</span></div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // --- Tab Management ---
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`a[href="#${tabId}"]`).classList.add('active');
+        }
+
+        // --- Data Loading & UI ---
+        const user = JSON.parse(localStorage.getItem('anshu-care-user'));
+        const orders = JSON.parse(localStorage.getItem('anshu-care-orders')) || [];
+        const addresses = JSON.parse(localStorage.getItem('anshu-care-addresses')) || [];
+
+        if (!user) {
+            window.location.href = 'signin.html';
+        }
+
+        function initAccount() {
+            // Check Hash for deep linking
+            const hash = window.location.hash.replace('#', '');
+            if (hash && document.getElementById(hash)) {
+                showTab(hash);
+            }
+
+            // Sidebar & Dashboard
+            document.getElementById('sidebarName').innerText = user.name;
+            document.getElementById('sidebarEmail').innerText = user.email;
+            document.getElementById('welcomeName').innerText = user.name.split(' ')[0];
+            document.getElementById('avatarIcon').innerText = user.name.charAt(0).toUpperCase();
+
+            document.getElementById('profName').value = user.name;
+            document.getElementById('profEmail').value = user.email;
+
+            document.getElementById('activeOrderCount').innerText = orders.length;
+            document.getElementById('savedAddressCount').innerText = addresses.length;
+
+            renderOrders();
+            renderAddresses();
+        }
+
+        function renderOrders() {
+            const list = document.getElementById('orderHistoryList');
+            if (orders.length === 0) return;
+
+            list.innerHTML = orders.map(order => `
+                <div class="order-history-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                        <div>
+                            <span style="display:block; font-size:0.8rem; color:#999;">ORDER #</span>
+                            <strong>${order.id}</strong>
+                        </div>
+                        <div style="text-align: right;">
+                            <span style="display:block; font-size:0.8rem; color:#999;">PLACED ON</span>
+                            <strong>${order.date}</strong>
+                        </div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="color: var(--primary); font-weight: 700;"><i class="fas fa-truck" style="margin-right: 8px;"></i> ${order.status}</span>
+                            <p style="font-size: 0.85rem; color: #666; margin-top: 4px;">Expecting on ${order.expected}</p>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.8rem;">
+                            <span style="font-weight: 800; font-size: 1.2rem;">₹${order.total}</span>
+                            <div style="display: flex; gap: 0.8rem;">
+                                ${order.trackingUrl ? `
+                                    <a href="${order.trackingUrl}" target="_blank" class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem; background: var(--primary); color: white;">Live Tracking</a>
+                                ` : `
+                                    <a href="track-orders.html" class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem; background: var(--secondary); color: var(--primary);">Details</a>
+                                `}
+                                
+                                ${order.status === 'Return Requested'
+                    ? `<span style="font-size: 0.75rem; color: #e53e3e; font-weight: 600;">Return Initiated</span>`
+                    : (isEligibleForReturn(order.date)
+                        ? `<button onclick="handleReturn('${order.id}')" class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem; background: #fff; border: 1px solid #e53e3e; color: #e53e3e;">Return Order</button>`
+                        : `<button disabled class="btn" style="padding: 0.5rem 1rem; font-size: 0.8rem; background: #eee; border: 1px solid #ddd; color: #999; cursor: not-allowed;">Return Period Ended</button>`
+                    )
+                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderAddresses() {
+            const list = document.getElementById('addressBookList');
+            if (addresses.length === 0) {
+                list.innerHTML = `<p style="color: #999; grid-column: 1/-1; text-align: center; padding: 2rem;">No saved addresses yet.</p>`;
+                return;
+            }
+
+            list.innerHTML = addresses.map((addr, idx) => `
+                <div class="address-card ${idx === 0 ? 'default' : ''}">
+                    <h4>${addr.fullName} ${idx === 0 ? '<span class="badge">Default</span>' : ''}</h4>
+                    <p style="color: #666; line-height: 1.6;">
+                        ${addr.house},<br>
+                        ${addr.city} - ${addr.pincode}<br>
+                        <strong>Phone:</strong> ${addr.phone}
+                    </p>
+                    <div class="address-actions">
+                        <button class="action-btn" onclick="editAddress(${idx})"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="action-btn" onclick="deleteAddress(${idx})" style="color: #e53e3e;"><i class="fas fa-trash"></i> Remove</button>
+                        ${idx !== 0 ? `<button class="action-btn" onclick="setDefault(${idx})">Set as Default</button>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- Logic Functions ---
+        let editIdx = -1;
+
+        function openAddressModal(idx = -1) {
+            editIdx = idx;
+            const modal = document.getElementById('addressModal');
+            const title = modal.querySelector('h3');
+            const submitBtn = modal.querySelector('button[type="submit"]');
+            const form = document.getElementById('newAddressForm');
+
+            if (idx === -1) {
+                title.innerText = "Add Shipping Address";
+                submitBtn.innerText = "Save Address";
+                form.reset();
+            } else {
+                title.innerText = "Edit Shipping Address";
+                submitBtn.innerText = "Update Address";
+                const addr = JSON.parse(localStorage.getItem('anshu-care-addresses'))[idx];
+                form.fullName.value = addr.fullName;
+                form.phone.value = addr.phone;
+                form.house.value = addr.house;
+                form.city.value = addr.city;
+                form.pincode.value = addr.pincode;
+            }
+            modal.style.display = 'flex';
+        }
+
+        function editAddress(idx) {
+            openAddressModal(idx);
+        }
+
+        function closeAddressModal() { document.getElementById('addressModal').style.display = 'none'; }
+
+        document.getElementById('newAddressForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const newAddr = Object.fromEntries(formData.entries());
+
+            let localAddrs = JSON.parse(localStorage.getItem('anshu-care-addresses')) || [];
+            if (editIdx === -1) {
+                localAddrs.push(newAddr);
+            } else {
+                localAddrs[editIdx] = newAddr;
+            }
+            localStorage.setItem('anshu-care-addresses', JSON.stringify(localAddrs));
+
+            this.reset();
+            closeAddressModal();
+            location.reload();
+        });
+
+        function deleteAddress(idx) {
+            const localAddrs = JSON.parse(localStorage.getItem('anshu-care-addresses')) || [];
+            localAddrs.splice(idx, 1);
+            localStorage.setItem('anshu-care-addresses', JSON.stringify(localAddrs));
+            location.reload();
+        }
+
+        function setDefault(idx) {
+            const localAddrs = JSON.parse(localStorage.getItem('anshu-care-addresses')) || [];
+            const selected = localAddrs.splice(idx, 1)[0];
+            localAddrs.unshift(selected); // Put at index 0
+            localStorage.setItem('anshu-care-addresses', JSON.stringify(localAddrs));
+            location.reload();
+        }
+
+        document.getElementById('updateProfileForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('profName').value;
+            const updatedUser = { ...user, name: name };
+            localStorage.setItem('anshu-care-user', JSON.stringify(updatedUser));
+            alert('Your sanctuary profile has been updated!');
+            location.reload();
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('anshu-care-user');
+            window.location.href = 'index.html';
+        });
+
+        function isEligibleForReturn(dateStr) {
+            const orderDate = new Date(dateStr);
+            const now = new Date();
+            const diffTime = Math.abs(now - orderDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 3;
+        }
+
+        function handleReturn(orderId) {
+            if (confirm(`Are you sure you want to request a return for Order #${orderId}? Our wellness experts will review your request within 24 hours.`)) {
+                let allOrders = JSON.parse(localStorage.getItem('anshu-care-orders')) || [];
+                // Update status logic here
+                allOrders = allOrders.map(o => {
+                    if (o.id === orderId) o.status = 'Return Requested';
+                    return o;
+                });
+                localStorage.setItem('anshu-care-orders', JSON.stringify(allOrders));
+                renderOrders();
+
+                // Find the updated order for PDF generation
+                const updatedOrder = allOrders.find(o => o.id === orderId);
+                if (updatedOrder) {
+                    generateReturnPDF(updatedOrder);
+                }
+
+                alert(`Return request submitted! \n\n[SIMULATED EMAIL SENT]: Your return slip for Order #${orderId} has been generated and sent to your email. Please download it and include it in your package.`);
+            }
+        }
+
+        function generateReturnPDF(order) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.setFontSize(22);
+            doc.setTextColor(230, 0, 0); // Red for Return
+            doc.text("RETURN AUTHORIZATION", 14, 20);
+
+            doc.setFontSize(10);
+            doc.setTextColor(100);
+            doc.text("Anshu Care - Reverse Logistics", 14, 26);
+
+            doc.setFontSize(14);
+            doc.setTextColor(0);
+            doc.text(`ORDER ID: ${order.id}`, 14, 45);
+            doc.text(`Request Date: ${new Date().toLocaleDateString()}`, 14, 52);
+
+            doc.autoTable({
+                startY: 60,
+                head: [['Item to Return', 'Status']],
+                body: order.items.map(i => [i.name, 'Pending Verification']),
+                headStyles: { fillColor: [150, 0, 0] }
+            });
+
+            const finalY = doc.lastAutoTable.finalY + 20;
+            doc.setFontSize(10);
+            doc.text("INSTRUCTIONS:", 14, finalY);
+            doc.text("1. Pack the products in their original sanctuary packaging.", 14, finalY + 10);
+            doc.text("2. Hand over this slip to our wellness courier at the time of pickup.", 14, finalY + 20);
+
+            doc.save(`Anshu_Care_Return_${order.id}.pdf`);
+        }
+
+        initAccount();
+    </script>
+</body>
+
+</html>

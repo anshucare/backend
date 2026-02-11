@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Orders | Anshu Care - Wellness Delivery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .tracking-layout {
+            padding: 12rem 5% 8rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 80vh;
+        }
+
+        .tracking-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+
+        .tracking-header h1 {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .order-card {
+            background: var(--white);
+            border-radius: 32px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+            margin-bottom: 4rem;
+            border-left: 10px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .order-meta {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 3rem;
+        }
+
+        .meta-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .meta-item strong {
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        /* Progress Tracker Styles */
+        .progress-tracker {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 4rem;
+            padding: 0 2rem;
+        }
+
+        .progress-tracker::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 5%;
+            width: 90%;
+            height: 4px;
+            background: #f0f2ea;
+            z-index: 0;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+        }
+
+        .step-icon {
+            width: 54px;
+            height: 54px;
+            background: #f8faf7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccd0c8;
+            margin-bottom: 1rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .step.active .step-icon {
+            background: var(--primary);
+            color: var(--white);
+            transform: scale(1.15);
+            box-shadow: 0 10px 20px rgba(45, 90, 39, 0.2);
+        }
+
+        .step.completed .step-icon {
+            background: var(--secondary);
+            color: var(--primary);
+        }
+
+        .step-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #aaa;
+        }
+
+        .step.active .step-label {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .item-list {
+            background: #fbfcf9;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(45, 90, 39, 0.05);
+        }
+
+        .tracked-item {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #e2e8e0;
+        }
+
+        .tracked-item:last-child {
+            border: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .tracked-item img {
+            width: 90px;
+            height: 90px;
+            border-radius: 16px;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+
+        .item-detail h4 {
+            color: var(--primary);
+            margin-bottom: 0.4rem;
+            font-size: 1.1rem;
+        }
+
+        .logout-btn {
+            background: var(--white);
+            border: 2px solid #edeff2;
+            padding: 1rem 2rem;
+            border-radius: 14px;
+            cursor: pointer;
+            color: #718096;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            border-color: #feb2b2;
+            color: #e53e3e;
+            background: #fff5f5;
+        }
+
+        .no-orders {
+            text-align: center;
+            padding: 6rem 2rem;
+            background: var(--white);
+            border-radius: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .progress-tracker {
+                flex-direction: column;
+                gap: 3rem;
+                padding: 0;
+            }
+
+            .progress-tracker::before {
+                display: none;
+            }
+
+            .step {
+                flex-direction: row;
+                gap: 2rem;
+                align-items: flex-start;
+            }
+
+            .step-icon {
+                margin-bottom: 0;
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">Anshu<span>Care</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i class="fas fa-shopping-cart"
+                    style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="tracking-layout">
+        <div class="tracking-header">
+            <h1>Sanctuary Tracking</h1>
+            <p id="welcome-msg">Experience the journey of your herbal treasures.</p>
+        </div>
+
+        <div id="orders-container">
+            <!-- Dynamic Orders will be injected here -->
+            <div class="no-orders">
+                <i class="fas fa-box-open"
+                    style="font-size: 4rem; color: #eee; margin-bottom: 2rem; display: block;"></i>
+                <h2 style="color: var(--primary); margin-bottom: 1rem;">No Active Shipments</h2>
+                <p style="color: #777; margin-bottom: 2rem;">You haven't placed any orders in our sanctuary yet.</p>
+                <a href="products.html" class="btn">Explore Collections</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 6rem;">
+            <button class="logout-btn" id="logout">Sign Out of Sanctuary</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        const currUser = JSON.parse(localStorage.getItem('anshu-care-user'));
+        const orders = JSON.parse(localStorage.getItem('anshu-care-orders')) || [];
+        const container = document.getElementById('orders-container');
+
+        if (!currUser) {
+            window.location.href = 'signin.html';
+        } else {
+            document.getElementById('welcome-msg').innerText = `Welcome back, ${currUser.name}! Here's the status of your herbal treasures.`;
+        }
+
+        if (orders.length > 0) {
+            container.innerHTML = orders.map(order => `
+                <div class="order-card">
+                    <div class="order-meta">
+                        <div class="meta-item">
+                            <span>Order Number</span>
+                            <strong>#${order.id}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span>Placed On</span>
+                            <strong>${order.date}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span>Delivery Status</span>
+                            <strong style="color: var(--primary);">${order.status}</strong>
+                        </div>
+                        <div class="meta-item">
+                            <span>Total Worth</span>
+                            <strong>₹${order.total}</strong>
+                        </div>
+                    </div>
+
+                    <div class="progress-tracker">
+                        <div class="step completed">
+                            <div class="step-icon"><i class="fas fa-file-invoice"></i></div>
+                            <span class="step-label">Ordered</span>
+                        </div>
+                        <div class="step active">
+                            <div class="step-icon"><i class="fas fa-box"></i></div>
+                            <span class="step-label">Processing</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon"><i class="fas fa-truck-fast"></i></div>
+                            <span class="step-label">Shipped</span>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon"><i class="fas fa-gift"></i></div>
+                            <span class="step-label">Delivered</span>
+                        </div>
+                    </div>
+                    
+                    ${order.trackingUrl ? `
+                    <div style="margin: 2rem 0; padding: 1.5rem; background: #f0f7f4; border-radius: 15px; display: flex; align-items: center; justify-content: space-between;">
+                        <div>
+                            <p style="font-weight: 700; color: var(--primary); margin-bottom: 4px;">Live tracking available</p>
+                            <p style="font-size: 0.85rem; color: #666;">Your shipment is being tracked via Shiprocket.</p>
+                        </div>
+                        <a href="${order.trackingUrl}" target="_blank" class="btn" style="padding: 0.8rem 1.5rem; font-size: 0.9rem;">Track Live</a>
+                    </div>
+                    ` : ''}
+
+                    <div class="item-list">
+                        <h3 style="margin-bottom: 2rem; color: var(--primary); font-family: 'Playfair Display';">Items in Shipment</h3>
+                        ${order.items.map(item => `
+                            <div class="tracked-item">
+                                <img src="${item.image}" alt="${item.name}">
+                                <div class="item-detail">
+                                    <h4>${item.name}</h4>
+                                    <p style="color: #666;">₹${item.price} x ${item.quantity}</p>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('logout').addEventListener('click', () => {
+            localStorage.removeItem('anshu-care-user');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

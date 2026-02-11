@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Anshu Care - Nature care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div>Anshu<span>Care</span></div>
+            <span class="tagline">Luxury Inspired by Nature</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="signin.html" id="nav-signin-tab">Sign In</a>
+            <a href="signup.html" id="nav-signup-tab" style="color: var(--primary); font-weight: 700;">Join Us</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i
+                    class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="contact-layout">
+        <div class="contact-info-card">
+            <h2>Reach Out to Nature</h2>
+            <p style="margin-bottom: 3rem; color: rgba(255,255,255,0.8);">Our doors and hearts are always open. Whether
+                you have a query about a product or just want to talk about Ayurveda, we're here.</p>
+
+            <div class="contact-method">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                    <strong>Our Sanctuary</strong>
+                    <p style="color: rgba(255,255,255,0.7); margin-top: 5px;">123 Herbal Lane, Wellness
+                        Quarter,<br>Kolkata, West Bengal 700001</p>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <i class="fas fa-phone"></i>
+                <div>
+                    <strong>Helpline</strong>
+                    <p id="contact-phone" style="color: rgba(255,255,255,0.7); margin-top: 5px;">+91 98765 43210</p>
+                </div>
+            </div>
+
+            <div class="contact-method">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <strong>Email Sanctuary</strong>
+                    <p id="contact-email" style="color: rgba(255,255,255,0.7); margin-top: 5px;">hello@anshucare.com</p>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem;">
+                <h4 style="margin-bottom: 1rem;">Hours of Serenity</h4>
+                <p style="color: rgba(255,255,255,0.7);">Mon - Sat: 9:00 AM - 7:00 PM<br>Sun: Peaceful Closure</p>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <h2 style="color: var(--primary); margin-bottom: 2rem;">Send a Message</h2>
+            <form id="contact-form"
+                style="background: var(--white); padding: 3rem; border-radius: 24px; box-shadow: var(--shadow);">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                    <div class="form-group">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
+                        <input type="text" placeholder="Your name" required
+                            style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none;">
+                    </div>
+                    <div class="form-group">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                        <input type="email" placeholder="Your email" required
+                            style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none;">
+                    </div>
+                </div>
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Inquiry Type</label>
+                    <select
+                        style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none; appearance: none; -webkit-appearance: none; background: white url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232d5a27%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22/%3E%3C/svg%3E') no-repeat right 1rem center; background-size: 0.8rem auto;">
+                        <option>General Inquiry</option>
+                        <option>Bulk Orders</option>
+                        <option>Product Advice</option>
+                        <option>Feedback</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                    <textarea rows="6" placeholder="How can we help your journey?" required
+                        style="width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid rgba(0,0,0,0.1); outline: none; resize: none;"></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Connect with us</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="index.html" class="logo"
+                    style="color: var(--white); margin-bottom: 1.5rem; display: block;">Anshu<span>Care</span></a>
+                <p style="color: #ababab;">Nature care for your holistic wellbeing. Premium ayurvedic solutions
+                    delivered to your doorstep.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href='terms-conditions.html'>Terms & Conditions</a></li>
+                    <li><a href='refund-policy.html'>Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                    <a href="#" style="color: var(--white);"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/917337082606" style="color: var(--white);"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="color: var(--white);"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/917337082606" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

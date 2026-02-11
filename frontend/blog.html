@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature's Wisdom Blog | Anshu Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blog-header {
+            padding: 12rem 5% 6rem;
+            text-align: center;
+            background: #f8f9f5;
+        }
+
+        .blog-grid {
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 2rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .blog-content p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <div>Anshu<span>Care</span></div>
+            <span class="tagline">Luxury Inspired by Nature</span>
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="about.html">About Us</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="signin.html" id="nav-signin-tab">Sign In</a>
+            <a href="signup.html" id="nav-signup-tab" style="color: var(--primary); font-weight: 700;">Join Us</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i
+                    class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <header class="blog-header">
+        <h1 style="font-size: 4rem; color: var(--primary); margin-bottom: 1.5rem;">Nature's Wisdom</h1>
+        <p style="font-size: 1.2rem; color: #555; max-width: 600px; margin: 0 auto;">Insights, rituals, and the science
+            of Ayurvedic healing.</p>
+    </header>
+
+    <main class="blog-grid">
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Ayurveda" class="blog-img">
+            <div class="blog-content">
+                <span class="blog-meta">Wellness Rituals</span>
+                <h3>The 5-Minute Morning ritual for Glowing Skin</h3>
+                <p>Simple Ayurvedic practices you can incorporate into your daily routine to achieve natural radiance
+                    from within.</p>
+                <a href="#" class="btn" style="padding: 0.7rem 1.5rem; font-size: 0.85rem;">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1512850183-6d7990f42385?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Herbs" class="blog-img">
+            <div class="blog-content">
+                <span class="blog-meta">Herbal Spotlight</span>
+                <h3>Why Brahmi is the ultimate food for your Hair</h3>
+                <p>Discover the science behind this ancient herb and how it promotes thick, healthy hair growth and
+                    scalp health.</p>
+                <a href="#" class="btn" style="padding: 0.7rem 1.5rem; font-size: 0.85rem;">Read More</a>
+            </div>
+        </article>
+
+        <article class="blog-card">
+            <img src="https://images.unsplash.com/photo-1624454002302-36b824d7bd0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                alt="Sandalwood" class="blog-img">
+            <div class="blog-content">
+                <span class="blog-meta">Ancient Wisdom</span>
+                <h3>Sandalwood: The Golden Ingredient of Skin Care</h3>
+                <p>Exploring the soothing properties of sandalwood and why it has been a staple in royalty skin care for
+                    centuries.</p>
+                <a href="#" class="btn" style="padding: 0.7rem 1.5rem; font-size: 0.85rem;">Read More</a>
+            </div>
+        </article>
+    </main>
+
+    <footer style="margin-top: 0;">
+        <div class="footer-bottom">
+            <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem;">
+                <a href="#" style="color: #ababab; transition: var(--transition);"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917337082606" style="color: #ababab; transition: var(--transition);"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="#" style="color: #ababab; transition: var(--transition);"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/917337082606" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

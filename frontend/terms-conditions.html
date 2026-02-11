@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | Anshu Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .legal-page {
+            padding: 10rem 10% 8rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .legal-page h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .legal-page h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-page p {
+            margin-bottom: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">Anshu<span>Care</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About Us</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i class="fas fa-shopping-cart"
+                    style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="legal-page">
+        <h1>Terms and Conditions</h1>
+        <p><strong>Effective Date:</strong> February 9, 2026</p>
+
+        <p>Welcome to Anshu Care! By accessing this website we assume you accept these terms and conditions. Do not
+            continue to use Anshu Care if you do not agree to take all of the terms and conditions stated on this page.
+        </p>
+
+        <h2>1. Products and Services</h2>
+        <p>All products listed on the website, their descriptions, and their prices are subject to change from time to
+            time. Purchase of a product on the website is subject to availability of stock.</p>
+
+        <h2>2. Order Acceptance</h2>
+        <p>We reserve the right to refuse or cancel any order for any reason, including limitations on quantities
+            available for purchase, inaccuracies, or errors in product or pricing information.</p>
+
+        <h2>3. Pricing and Payments</h2>
+        <p>Prices for items are listed in Indian Rupees (INR). We currently accept payments via UPI (Unified Payments
+            Interface) and Cash on Delivery. You agree to provide current, complete, and accurate purchase and account
+            information for all purchases made at our store.</p>
+
+        <h2>4. Returns and Refunds</h2>
+        <p>We accept returns for damaged or defective items within 7 days of delivery. Please inspect your order upon
+            reception and contact us immediately if the item is defective, damaged or if you receive the wrong item.</p>
+
+        <h2>5. Limitation of Liability</h2>
+        <p>Anshu Care shall not be held responsible for any special or consequential damages that result from the use
+            of, or the inability to use, the materials on this site or the performance of the products.</p>
+
+        <h2>6. Cookies</h2>
+        <p>We employ the use of cookies. By accessing Anshu Care, you agreed to use cookies in agreement with the Anshu
+            Care's Privacy Policy.</p>
+
+        <h2>7. Contact Information</h2>
+        <p>Questions about the Terms of Service should be sent to us at support@anshucare.com.</p>
+    </main>
+
+    <footer style="margin-top: 0; background: #1a1c19;">
+        <div class="footer-bottom">
+            <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem;">
+                <a href="#" style="color: #ababab; transition: var(--transition);"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917337082606" style="color: #ababab; transition: var(--transition);"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="#" style="color: #ababab; transition: var(--transition);"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

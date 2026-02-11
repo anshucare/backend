@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout | Anshu Care - Nature care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+            padding: 12rem 5% 8rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .checkout-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .checkout-section h2 {
+            margin-bottom: 2rem;
+            color: var(--primary);
+            font-size: 1.8rem;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #444;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            outline: none;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(45, 90, 39, 0.05);
+        }
+
+        .order-summary {
+            background: #f8faf7;
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(45, 90, 39, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            border: 2px solid #f0f0f0;
+            border-radius: 16px;
+            margin-bottom: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-option:hover {
+            background: #fff;
+            transform: scale(1.02);
+        }
+
+        .payment-option input:checked+div+label,
+        .payment-option.active {
+            border-color: var(--primary);
+            background: #f8fcf7;
+        }
+
+        /* Loading Overlay */
+        #payment-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 2rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">Anshu<span>Care</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i class="fas fa-shopping-cart"
+                    style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="checkout-layout">
+        <div class="checkout-steps">
+            <div class="checkout-section">
+                <h2>1. Shipping Address</h2>
+                <form id="address-form">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <article class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="e.g. Rahul Sharma" required>
+                        </article>
+                        <article class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" placeholder="10-digit mobile number" required pattern="[0-9]{10}">
+                        </article>
+                    </div>
+                    <article class="form-group">
+                        <label>House / Flat / Building No.</label>
+                        <input type="text" placeholder="House no., Building name" required>
+                    </article>
+                    <article class="form-group">
+                        <label>Area / Street / Sector</label>
+                        <input type="text" placeholder="Area details" required>
+                    </article>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <article class="form-group">
+                            <label>City</label>
+                            <input type="text" placeholder="City" required>
+                        </article>
+                        <article class="form-group">
+                            <label>Pincode</label>
+                            <input type="text" placeholder="6-digit PIN code" required pattern="[0-9]{6}">
+                        </article>
+                    </div>
+                </form>
+            </div>
+
+            <div class="checkout-section">
+                <h2>2. Payment Gateway</h2>
+                <div class="payment-options">
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="cod" checked onchange="toggleUpiDetails(false)"
+                            style="width: 20px; height: 20px; accent-color: var(--primary);">
+                        <div style="margin-left: 1rem;">
+                            <strong>Cash on Delivery (COD)</strong>
+                            <p style="font-size: 0.85rem; color: #777;">Pay when you receive your nature care products.
+                            </p>
+                        </div>
+                    </label>
+                    <label class="payment-option">
+                        <input type="radio" name="payment" value="upi" onchange="toggleUpiDetails(true)"
+                            style="width: 20px; height: 20px; accent-color: var(--primary);">
+                        <div style="margin-left: 1rem; width: 100%;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <strong>UPI / QR Code</strong>
+                                <div style="display: flex; gap: 8px;">
+                                    <i class="fab fa-google-pay" style="font-size: 1.5rem; color: #4285F4;"></i>
+                                    <i class="fas fa-wallet" style="font-size: 1.2rem; color: #6739B7;"
+                                        title="PhonePe"></i>
+                                    <i class="fas fa-coins" style="font-size: 1.2rem; color: #00BAF2;"
+                                        title="Paytm"></i>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.85rem; color: #777;">Instant payment via GPay, PhonePe, Paytm, or
+                                Amazon Pay.</p>
+
+                            <!-- UPI Details (Hidden by default) -->
+                            <div id="upi-details"
+                                style="display: none; margin-top: 1.5rem; background: #f9f9f9; padding: 1.5rem; border-radius: 15px; border: 1px dashed var(--primary); text-align: center;">
+                                <p
+                                    style="font-size: 0.8rem; font-weight: 700; margin-bottom: 1rem; color: var(--primary);">
+                                    SCAN TO PAY SECURELY</p>
+                                <div
+                                    style="background: white; padding: 10px; display: inline-block; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 1rem;">
+                                    <img id="upi-qr-code"
+                                        src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=anshucare@okaxis%26pn=AnshuCare%26cu=INR"
+                                        alt="UPI QR Code" style="width: 200px; height: 200px; display: inline-block;">
+                                </div>
+                                <div
+                                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.5rem;">
+                                    <button type="button" class="btn upi-app-btn" onclick="triggerUpi('google', event)"
+                                        style="background: #fff; border: 1px solid #ddd; padding: 8px; font-size: 0.75rem; border-radius: 8px; color: #444;">
+                                        <i class="fab fa-google-pay"></i> GPay
+                                    </button>
+                                    <button type="button" class="btn upi-app-btn" onclick="triggerUpi('phonepe', event)"
+                                        style="background: #fff; border: 1px solid #ddd; padding: 8px; font-size: 0.75rem; border-radius: 8px; color: #444;">
+                                        <i class="fas fa-wallet"></i> PhonePe
+                                    </button>
+                                    <button type="button" class="btn upi-app-btn" onclick="triggerUpi('paytm', event)"
+                                        style="background: #fff; border: 1px solid #ddd; padding: 8px; font-size: 0.75rem; border-radius: 8px; color: #444;">
+                                        <i class="fas fa-coins"></i> Paytm
+                                    </button>
+                                    <button type="button" class="btn upi-app-btn" onclick="triggerUpi('amazon', event)"
+                                        style="background: #fff; border: 1px solid #ddd; padding: 8px; font-size: 0.75rem; border-radius: 8px; color: #444;">
+                                        <i class="fab fa-amazon"></i> Amazon Pay
+                                    </button>
+                                </div>
+
+                                <!-- Transaction ID Verification -->
+                                <div
+                                    style="margin-top: 0rem; text-align: left; background: white; padding: 1rem; border-radius: 10px; border: 1px solid #eee;">
+                                    <label
+                                        style="display: block; font-size: 0.75rem; font-weight: 700; color: #555; margin-bottom: 0.5rem;">PAID?
+                                        ENTER TRANSACTION ID (UTR)</label>
+                                    <input type="text" id="upi-transaction-id" placeholder="e.g. 123456789012"
+                                        style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9rem;">
+                                    <p style="font-size: 0.7rem; color: #888; margin-top: 0.5rem;">Enter the 12-digit
+                                        number from your payment app after successful transfer.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <aside class="order-summary">
+            <h2 style="margin-bottom: 2rem; font-family: 'Playfair Display'; font-size: 1.8rem;">Your Order</h2>
+            <div id="checkout-items-list" style="max-height: 400px; overflow-y: auto;">
+                <!-- Items injected here -->
+            </div>
+
+            <div style="margin-top: 2rem; border-top: 2px solid var(--primary); padding-top: 1.5rem;">
+                <div class="summary-item">
+                    <span>Items Total</span>
+                    <strong id="summary-subtotal">₹0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>GST (Included)</span>
+                    <span style="color: #888;">₹0</span>
+                </div>
+                <div class="summary-item">
+                    <span>Shipping Fee</span>
+                    <span id="shipping-cost" style="color: #2d5a27; font-weight: 700;">FREE</span>
+                </div>
+                <div class="summary-item" style="font-size: 1.5rem; font-weight: 800; border: none; margin-top: 1rem;">
+                    <span>Grand Total</span>
+                    <span id="summary-total" style="color: var(--accent);">₹0</span>
+                </div>
+
+                <p
+                    style="font-size: 0.8rem; color: #777; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fas fa-shield-alt" style="color: var(--primary);"></i> 100% Safe and Secure Ayurvedic
+                    Deliveries
+                </p>
+
+                <button type="submit" id="mainSubmitBtn" form="address-form" class="btn"
+                    style="width: 100%; font-size: 1.2rem; padding: 1.4rem;">Place Order Now</button>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Simulated Gateway Modal -->
+    <div id="payment-modal">
+        <div>
+            <div class="spinner"></div>
+            <h3>Connecting to Secure Gateway...</h3>
+            <p style="margin-top: 1rem; color: #ccc;">Please do not refresh or close this window.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Function to toggle UPI details visibility
+        let paymentState = 'cod';
+        function toggleUpiDetails(show) {
+            const upiDiv = document.getElementById('upi-details');
+            const submitBtn = document.getElementById('mainSubmitBtn');
+            const qrImg = document.getElementById('upi-qr-code');
+            const adminUpi = localStorage.getItem('anshu-care-upi') || "anshucare@okaxis";
+            const amount = document.getElementById('summary-total').innerText.replace('₹', '');
+
+            if (upiDiv) {
+                upiDiv.style.display = show ? 'block' : 'none';
+            }
+
+            if (show && qrImg) {
+                // Generate a real UPI QR link
+                const qrData = encodeURIComponent(`upi://pay?pa=${adminUpi}&pn=AnshuCare&am=${amount}&cu=INR`);
+                qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${qrData}`;
+            }
+
+            paymentState = show ? 'upi' : 'cod';
+            if (submitBtn) {
+                submitBtn.innerText = show ? "Pay & Place Order" : "Place Order Now";
+                submitBtn.style.background = show ? "var(--accent)" : "var(--primary)";
+            }
+        }
+
+        function triggerUpi(app, ev) {
+            const ADMIN_UPI_ID = localStorage.getItem('anshu-care-upi') || "anshucare@okaxis";
+
+            const amount = document.getElementById('summary-total').innerText.replace('₹', '');
+            const name = "Anshu Care Nature Sanctuary";
+            // Standard UPI Intent URL
+            const upiUrl = `upi://pay?pa=${ADMIN_UPI_ID}&pn=${encodeURIComponent(name)}&am=${amount}&cu=INR`;
+
+            // Redirect to App
+            window.location.href = upiUrl;
+
+            // Feedback for Desktop users or if app doesn't open
+            alert(`Opening ${app.toUpperCase()}... \n\nIf you are on desktop, please scan the QR code with your mobile app to pay ₹${amount}.`);
+
+            // Highlight buttons
+            document.querySelectorAll('.upi-app-btn').forEach(b => b.style.borderColor = '#ddd');
+            if (ev && ev.currentTarget) {
+                ev.currentTarget.style.borderColor = 'var(--primary)';
+                ev.currentTarget.style.background = '#f0f7f0';
+            }
+        }
+
+        // Checkout Specific Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            const cartItems = JSON.parse(localStorage.getItem('anshu-care-cart')) || [];
+            const list = document.getElementById('checkout-items-list');
+            const subtotalEl = document.getElementById('summary-subtotal');
+            const totalEl = document.getElementById('summary-total');
+
+            if (cartItems.length === 0) {
+                alert('Your cart is empty! Redirecting to shop...');
+                window.location.href = 'products.html';
+                return;
+            }
+
+            // Render Items
+            list.innerHTML = cartItems.map(item => `
+                <div class="summary-item" style="border: none; margin-bottom: 0.5rem; padding-bottom: 0.5rem;">
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <img src="${item.image}" style="width: 50px; height: 50px; border-radius: 8px; object-fit: cover;">
+                        <div>
+                            <span style="display:block; font-size: 0.95rem; font-weight: 600;">${item.name}</span>
+                            <span style="font-size: 0.85rem; color: #777;">Qty: ${item.quantity}</span>
+                        </div>
+                    </div>
+                    <strong>₹${item.price * item.quantity}</strong>
+                </div>
+            `).join('');
+
+            const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const shipConfig = JSON.parse(localStorage.getItem('anshu-care-shipping')) || { fee: 0, thresh: 0 };
+
+            let finalShipping = 0;
+            if (shipConfig.thresh > 0 && total >= shipConfig.thresh) {
+                finalShipping = 0;
+            } else {
+                finalShipping = shipConfig.fee;
+            }
+
+            document.getElementById('shipping-cost').innerText = finalShipping === 0 ? 'FREE' : `₹${finalShipping}`;
+            subtotalEl.innerText = `₹${total}`;
+            totalEl.innerText = `₹${total + finalShipping}`;
+
+            // Handle Payment Simulation
+            document.getElementById('address-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const modal = document.getElementById('payment-modal');
+                const paymentType = document.querySelector('input[name="payment"]:checked').value;
+                const utr = document.getElementById('upi-transaction-id').value;
+
+                if (paymentType === 'upi' && !utr) {
+                    alert('Please enter your 12-digit Transaction ID/UTR to verify your nature care payment.');
+                    return;
+                }
+
+                modal.style.display = 'flex';
+
+                // Simulate Gateway Latency
+                setTimeout(() => {
+                    const messageH3 = modal.querySelector('h3');
+                    if (paymentType === 'cod') {
+                        messageH3.innerText = 'Confirming Order Details...';
+                    } else {
+                        messageH3.innerText = 'Authorizing Payment...';
+                    }
+
+                    setTimeout(() => {
+                        const orderId = 'AC-' + Math.floor(1000 + Math.random() * 9000);
+                        const orderDate = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+                        // Create Order Record
+                        const recentOrders = JSON.parse(localStorage.getItem('anshu-care-orders')) || [];
+                        const newOrder = {
+                            id: orderId,
+                            date: orderDate,
+                            total: total + finalShipping,
+                            items: cartItems,
+                            paymentMethod: paymentType,
+                            transactionId: utr || 'N/A',
+                            status: 'Order Placed',
+                            expected: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                        };
+                        recentOrders.unshift(newOrder);
+                        localStorage.setItem('anshu-care-orders', JSON.stringify(recentOrders));
+
+                        // Generate PDF Invoice
+                        generateInvoicePDF(newOrder);
+
+                        // Clear Cart
+                        localStorage.removeItem('anshu-care-cart');
+
+                        // Redirect
+                        alert("Order Successful! Your invoice is downloading. A confirmation has been sent to your sanctuary email.");
+                        window.location.href = 'success.html';
+                    }, 2000);
+                }, 1500);
+            });
+        });
+
+        function generateInvoicePDF(order) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Branding
+            doc.setFontSize(24);
+            doc.setTextColor(26, 58, 50);
+            doc.text("Anshu Care", 14, 20);
+
+            doc.setFontSize(10);
+            doc.setTextColor(100);
+            doc.text("Ayurvedic Wellness Sanctuary", 14, 26);
+
+            doc.setFontSize(14);
+            doc.setTextColor(0);
+            doc.text(`INVOICE: ${order.id}`, 14, 45);
+            doc.text(`Date: ${order.date}`, 14, 52);
+
+            const tableRows = order.items.map(item => [
+                item.name,
+                item.quantity.toString(),
+                `RS. ${item.price}`,
+                `RS. ${item.price * item.quantity}`
+            ]);
+
+            doc.autoTable({
+                startY: 60,
+                head: [['Herbal Product', 'Qty', 'Unit Price', 'Subtotal']],
+                body: tableRows,
+                headStyles: { fillColor: [26, 58, 50] }
+            });
+
+            const finalY = doc.lastAutoTable.finalY + 10;
+            doc.setFontSize(12);
+            doc.text(`Total Amount: RS. ${order.total}`, 140, finalY);
+
+            doc.setFontSize(8);
+            doc.setTextColor(150);
+            doc.text("Thank you for choosing Anshu Care Sanctuary.", 14, finalY + 20);
+
+            doc.save(`Anshu_Care_Invoice_${order.id}.pdf`);
+        }
+    </script>
+</body>
+
+</html>

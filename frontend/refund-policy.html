@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund & Return Policy | Anshu Care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .legal-page {
+            padding: 10rem 10% 8rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .legal-page h1 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .legal-page h2 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .legal-page p {
+            margin-bottom: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .legal-page ul {
+            margin-bottom: 1.5rem;
+            color: #555;
+            padding-left: 2rem;
+        }
+
+        .legal-page li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">Anshu<span>Care</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">About Us</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i
+                    class="fas fa-shopping-cart" style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="legal-page">
+        <h1>Refund & Return Policy</h1>
+        <p><strong>Effective Date:</strong> February 9, 2026</p>
+
+        <p>At Anshu Care, we strive to ensure you are satisfied with your purchase of our natural wellness products.
+            However, if you are not entirely satisfied, we are here to help.</p>
+
+        <h2>1. Returns</h2>
+        <p>You have <strong>3 calendar days</strong> to return an item from the date you received it.</p>
+        <p>To be eligible for a return, your item must be:</p>
+        <ul>
+            <li>Unused and in the same condition that you received it.</li>
+            <li>In the original packaging.</li>
+            <li>Accompanied by the receipt or proof of purchase (Order ID).</li>
+        </ul>
+
+        <h2>2. Refunds</h2>
+        <p>Once we receive your item, we will inspect it and notify you that we have received your returned item. We
+            will immediately notify you on the status of your refund after inspecting the item.</p>
+        <p>If your return is approved, we will initiate a refund to your original method of payment (or Bank Transfer
+            for COD orders).</p>
+        <p>You will receive the credit within a certain amount of days, depending on your card issuer's policies
+            (usually 5-7 business days).</p>
+
+        <h2>3. Shipping</h2>
+        <p>You will be responsible for paying for your own shipping costs for returning your item. Shipping costs are
+            non-refundable.</p>
+        <p>If you receive a refund, the cost of return shipping will be deducted from your refund.</p>
+
+        <h2>4. Non-Returnable Items</h2>
+        <p>Certain types of items cannot be returned, like perishable goods (such as specific herbal pastes without
+            preservatives) or personal care items that have been opened (for hygiene reasons).</p>
+
+        <h2>5. Contact Us</h2>
+        <p>If you have any questions on how to return your item to us, contact us.</p>
+        <p><strong>Email:</strong> support@anshucare.com<br>
+            <strong>Phone:</strong> +91 98765 43210
+        </p>
+    </main>
+
+    <footer style="margin-top: 0; background: #1a1c19;">
+        <div class="footer-bottom">
+            <div style="display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 1rem; font-size: 1.2rem;">
+                <a href="#" style="color: #ababab; transition: var(--transition);"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917337082606" style="color: #ababab; transition: var(--transition);"><i
+                        class="fab fa-whatsapp"></i></a>
+                <a href="#" style="color: #ababab; transition: var(--transition);"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

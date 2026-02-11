@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful | Anshu Care - Nature care</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo">Anshu<span>Care</span></a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="products.html">Shop</a>
+            <a href="blog.html">Blog</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <a href="#" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;"><i class="fas fa-shopping-cart"
+                    style="margin-right: 8px;"></i> Cart (0)</a>
+        </div>
+    </nav>
+
+    <main class="full-height-center" style="background: #f8f9f5;">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h1 style="color: var(--primary); margin-bottom: 1rem;">Order Placed Successfully!</h1>
+            <p style="color: #555; font-size: 1.1rem; margin-bottom: 2.5rem; line-height: 1.6;">Thank you for choosing
+                Anshu Care. Your journey towards holistic wellness has begun. We've sent a confirmation email to you,
+                and our team is already preparing your herbal treasures.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="products.html" class="btn">Continue Shopping</a>
+                <a href="account.html#orders" class="btn"
+                    style="background: var(--secondary); color: var(--primary);">Track Your Order</a>
+                <a href="index.html"
+                    style="text-decoration: none; color: var(--primary); font-weight: 600; width: 100%; margin-top: 1rem;">Back
+                    to
+                    Home</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <a href="#" class="logo"
+                    style="color: var(--white); margin-bottom: 1.5rem; display: block;">Anshu<span>Care</span></a>
+                <p style="color: #ababab;">Nature care for your holistic wellbeing. Premium ayurvedic solutions
+                    delivered to your doorstep.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href='terms-conditions.html'>Terms & Conditions</a></li>
+                    <li><a href='refund-policy.html'>Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div style="display: flex; gap: 1.5rem; font-size: 1.5rem;">
+                    <a href="#" style="color: var(--white);"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/917337082606" style="color: var(--white);"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="#" style="color: var(--white);"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Anshu Care. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/917337082606" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+
+    <!-- Cart Modal Shell -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Your Sanctuary Cart</h3>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p style="text-align: center; color: #777; margin-top: 2rem;">Your cart is empty.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        // Clear cart local storage or dummy state upon landing here
+        window.onload = () => {
+            // If we had real localStorage cart, we'd clear it here.
+            // For this demo, the 'cart' variable in main.js will reset on page load anyway.
+        };
+    </script>
+</body>
+
+</html>
