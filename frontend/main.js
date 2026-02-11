@@ -77,9 +77,9 @@ const DEFAULT_SITE_CONTENT = {
         description: "",
         email: "support@anshucare.com",
         phone: "",
-        phoneLabel: "Phone",
+        phoneLabel: "",
         address: "",
-        addressLabel: "Address",
+        addressLabel: "",
         whatsapp: "919999999999",
         instagram: "https://instagram.com",
         youtube: "https://youtube.com"

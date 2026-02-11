@@ -32,12 +32,12 @@ const DEFAULT_SITE_CONTENT = {
     },
     contact: {
         title: "Get in Touch",
-        description: "Have questions about our products or want to learn more about Ayurveda? We'd love to hear from you.",
+        description: "",
         email: "hello@anshucare.com",
-        phone: "+91 98765 43210",
-        phoneLabel: "Helpline",
-        address: "123 Herbal Lane, Wellness Quarter, Kolkata, West Bengal 700001",
-        addressLabel: "Our Sanctuary",
+        phone: "",
+        phoneLabel: "",
+        address: "",
+        addressLabel: "",
         whatsapp: "919876543210",
         instagram: "https://instagram.com",
         youtube: "https://youtube.com"
