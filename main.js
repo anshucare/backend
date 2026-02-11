@@ -38,7 +38,7 @@ const DEFAULT_SITE_CONTENT = {
         phoneLabel: "",
         address: "",
         addressLabel: "",
-        whatsapp: "919876543210",
+        whatsapp: "917337082606",
         instagram: "https://instagram.com",
         youtube: "https://youtube.com"
     },
