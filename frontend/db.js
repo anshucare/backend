@@ -1,6 +1,6 @@
 // DATABASE CONFIGURATION
-const APP_MODE = 'LOCAL'; // Change to 'API' for production
-const API_BASE_URL = "http://localhost:5000/api"; // Pointing to local backend
+const APP_MODE = 'API'; // Change to 'API' for production
+const API_BASE_URL = "https://backend-jwra.onrender.com/api"; // Pointing to Render backend
 
 const DB = {
     // READ Data (List)
@@ -62,6 +62,32 @@ const DB = {
             }
         } else {
             // Local Storage Logic
+            const current = await this.get(collection);
+            const index = current.findIndex(i => i.id == id);
+            if (index !== -1) {
+                current[index] = { ...current[index], ...updates };
+                localStorage.setItem(`anshu-care-${collection}`, JSON.stringify(current));
+                return current[index];
+            }
+            return null;
+        }
+    },
+
+    // PARTIAL UPDATE (PATCH)
+    async patch(collection, id, updates) {
+        if (APP_MODE === 'API') {
+            try {
+                const res = await fetch(`${API_BASE_URL}/${collection}/${id}`, {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(updates)
+                });
+                return await res.json();
+            } catch (err) {
+                console.error("API Error:", err);
+                return null;
+            }
+        } else {
             const current = await this.get(collection);
             const index = current.findIndex(i => i.id == id);
             if (index !== -1) {

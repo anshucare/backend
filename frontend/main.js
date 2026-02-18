@@ -1,48 +1,13 @@
-// Chat Modal Logic
-document.addEventListener('DOMContentLoaded', function () {
-    const chatModal = document.getElementById('chatModalBoard');
-    const openChatBtn = document.getElementById('openChatModal');
-    const closeChatBtn = document.getElementById('closeChatModal');
-    const chatInput = document.getElementById('chatUserInput');
-    const sendBtn = document.getElementById('sendChatMsg');
-    // Dynamic WhatsApp Number Lookup
-    function getWhatsAppNumber() {
-        const content = JSON.parse(localStorage.getItem('anshu-care-content')) || {};
-        const contact = content.contact || {};
-        // Default to the one in DB or fallback
-        let num = contact.whatsapp || "919876543210";
-        return num.replace(/\+/g, '').replace(/\s/g, '');
-    }
+// Dynamic WhatsApp Number Lookup
+function getWhatsAppNumber() {
+    const contact = siteContent.contact || {};
+    let num = contact.whatsapp || "917337082606";
+    return num.replace(/\+/g, '').replace(/\s/g, '');
+}
 
-    if (openChatBtn && chatModal) {
-        openChatBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            chatModal.style.display = 'block';
-        });
-    }
-    if (closeChatBtn && chatModal) {
-        closeChatBtn.addEventListener('click', function () {
-            chatModal.style.display = 'none';
-        });
-    }
-    if (chatInput && sendBtn) {
-        sendBtn.addEventListener('click', function () {
-            if (chatInput.value.trim()) {
-                const num = getWhatsAppNumber();
-                window.open(`https://wa.me/${num}?text=` + encodeURIComponent(chatInput.value), '_blank');
-            }
-        });
-        chatInput.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' && chatInput.value.trim()) {
-                const num = getWhatsAppNumber();
-                window.open(`https://wa.me/${num}?text=` + encodeURIComponent(chatInput.value), '_blank');
-            }
-        });
-    }
-});
-// Apply Theme Settings immediately to prevent flash of default colors
+// Apply Theme Settings
 function applyTheme() {
-    const theme = JSON.parse(localStorage.getItem('anshu-care-theme'));
+    const theme = siteContent.theme;
     if (theme) {
         const root = document.documentElement;
         if (theme.primary) root.style.setProperty('--primary', theme.primary);
@@ -52,7 +17,6 @@ function applyTheme() {
         if (theme.text) root.style.setProperty('--text-color', theme.text);
     }
 }
-applyTheme();
 
 const DEFAULT_SITE_CONTENT = {
     hero: {
@@ -179,7 +143,43 @@ const DEFAULT_BLOGS = [
     { id: 2, title: "The Power of Brahmi", date: "Feb 15, 2026", excerpt: "How this mystical herb transforms hair health from root to tip.", image: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?ixlib=rb-1.2.1&auto=format&fit=crop&w=800" }
 ];
 
-let siteContent = JSON.parse(localStorage.getItem('anshu-care-content')) || DEFAULT_SITE_CONTENT;
+// --- REFACTORED DATA INITIALIZATION (API + LOCAL FALLBACK) ---
+let siteContent = DEFAULT_SITE_CONTENT;
+let siteSections = DEFAULT_SECTIONS;
+let siteCategories = DEFAULT_CATEGORIES;
+let products = DEFAULT_PRODUCTS;
+let blogs = DEFAULT_BLOGS;
+
+async function initData() {
+    try {
+        console.log('[API] Initializing Sanctuary Data...');
+
+        const [apiContent, apiSections, apiCategories, apiProducts, apiBlogs] = await Promise.all([
+            DB.get('content'),
+            DB.get('sections'),
+            DB.get('categories'),
+            DB.get('products'),
+            DB.get('blogs')
+        ]);
+
+        if (apiContent && !Array.isArray(apiContent)) {
+            siteContent = deepMerge(siteContent, apiContent);
+        } else if (Array.isArray(apiContent) && apiContent.length > 0) {
+            siteContent = deepMerge(siteContent, apiContent[0]);
+        }
+
+        if (apiSections && apiSections.length > 0) siteSections = apiSections;
+        if (apiCategories && apiCategories.length > 0) siteCategories = apiCategories;
+        if (apiProducts && apiProducts.length > 0) products = apiProducts;
+        if (apiBlogs && apiBlogs.length > 0) blogs = apiBlogs;
+
+        console.log('[API] Sanctuary data synchronized.');
+        applyTheme();
+    } catch (err) {
+        console.warn('[LOCAL] API unavailable, using internal sanctuary wisdom.', err);
+    }
+}
+
 
 function deepMerge(target, source) {
     for (const key in source) {
@@ -187,7 +187,7 @@ function deepMerge(target, source) {
             if (!target[key]) target[key] = {};
             deepMerge(target[key], source[key]);
         } else {
-            if (target[key] === undefined) {
+            if (target[key] !== undefined) {
                 target[key] = source[key];
             }
         }
@@ -195,49 +195,10 @@ function deepMerge(target, source) {
     return target;
 }
 
-siteContent = deepMerge(siteContent, DEFAULT_SITE_CONTENT);
-
-// Migration: Fix default social links
-if (siteContent.contact) {
-    if (siteContent.contact.instagram === '#') siteContent.contact.instagram = "https://instagram.com";
-    if (siteContent.contact.youtube === '#') siteContent.contact.youtube = "https://youtube.com";
-}
-if (siteContent.features && siteContent.features.length) {
-    siteContent.features = siteContent.features.filter(f => f.text !== "Lab Tested");
-}
-if (siteContent.footer && siteContent.footer.socialLinks) {
-    let modified = false;
-    siteContent.footer.socialLinks.forEach(l => {
-        if (l.url === '#') {
-            if (l.icon.includes('instagram')) { l.url = "https://instagram.com"; modified = true; }
-            if (l.icon.includes('youtube')) { l.url = "https://youtube.com"; modified = true; }
-        }
-    });
-    // We don't necessarily need to save to LS here as we use siteContent in memory, but good practice if persisted
-}
-localStorage.setItem('anshu-care-content', JSON.stringify(siteContent));
-
-let storedSections = JSON.parse(localStorage.getItem('anshu-care-sections'));
-let siteSections = (storedSections && storedSections.length > 0) ? storedSections : DEFAULT_SECTIONS;
-let storedCats = JSON.parse(localStorage.getItem('anshu-care-categories'));
-let siteCategories = (storedCats && storedCats.length > 0) ? storedCats : DEFAULT_CATEGORIES;
-let products = JSON.parse(localStorage.getItem('anshu-care-products')) || DEFAULT_PRODUCTS;
-let blogs = JSON.parse(localStorage.getItem('anshu-care-blogs')) || DEFAULT_BLOGS;
-
-if (!localStorage.getItem('anshu-care-sections')) localStorage.setItem('anshu-care-sections', JSON.stringify(DEFAULT_SECTIONS));
-if (!localStorage.getItem('anshu-care-categories')) {
-    localStorage.setItem('anshu-care-categories', JSON.stringify(DEFAULT_CATEGORIES));
-    siteCategories = DEFAULT_CATEGORIES;
-}
-if (!localStorage.getItem('anshu-care-products')) localStorage.setItem('anshu-care-products', JSON.stringify(DEFAULT_PRODUCTS));
-if (!localStorage.getItem('anshu-care-blogs')) localStorage.setItem('anshu-care-blogs', JSON.stringify(DEFAULT_BLOGS));
 
 function applySiteContent() {
-    siteContent = JSON.parse(localStorage.getItem('anshu-care-content')) || DEFAULT_SITE_CONTENT;
-    siteSections = JSON.parse(localStorage.getItem('anshu-care-sections')) || DEFAULT_SECTIONS;
-    siteCategories = JSON.parse(localStorage.getItem('anshu-care-categories')) || DEFAULT_CATEGORIES;
-    products = JSON.parse(localStorage.getItem('anshu-care-products')) || DEFAULT_PRODUCTS;
-    blogs = JSON.parse(localStorage.getItem('anshu-care-blogs')) || DEFAULT_BLOGS;
+    // Variables (siteContent, siteSections, siteCategories, products, blogs) 
+    // are already populated by initData() from API or DEFAULTS.
 
     // Inject Hero Data
     const heroTitle = document.querySelector('.hero-content h1');
@@ -509,7 +470,8 @@ function updateAuthUI() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await initData();
     applySiteContent();
     updateCartUI();
     updateAuthUI();

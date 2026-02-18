@@ -45,12 +45,99 @@ const orderSchema = new mongoose.Schema({
 
 const Product = mongoose.model('Product', productSchema);
 const Order = mongoose.model('Order', orderSchema);
+const Category = require('./models/Category');
+const Section = require('./models/Section');
+const Blog = require('./models/Blog');
+const SiteContent = require('./models/SiteContent');
 
 // API Routes
 
-// --- SETTINGS ---
-const settingsRoutes = require("./routes/settings");
-app.use("/api/settings", settingsRoutes);
+// --- SITE CONTENT & THEME ---
+app.get('/api/content', async (req, res) => {
+    try {
+        let content = await SiteContent.findOne({ key: 'main' });
+        if (!content) {
+            content = new SiteContent({ key: 'main' });
+            await content.save();
+        }
+        res.json(content);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.post('/api/content', async (req, res) => {
+    try {
+        const content = await SiteContent.findOneAndUpdate(
+            { key: 'main' },
+            req.body,
+            { new: true, upsert: true }
+        );
+        res.json(content);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// --- SECTIONS ---
+app.get('/api/sections', async (req, res) => {
+    try {
+        const sections = await Section.find();
+        res.json(sections);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.post('/api/sections', async (req, res) => {
+    try {
+        const section = new Section(req.body);
+        await section.save();
+        res.status(201).json(section);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// --- CATEGORIES ---
+app.get('/api/categories', async (req, res) => {
+    try {
+        const categories = await Category.find();
+        res.json(categories);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.post('/api/categories', async (req, res) => {
+    try {
+        const category = new Category(req.body);
+        await category.save();
+        res.status(201).json(category);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+
+// --- BLOGS ---
+app.get('/api/blogs', async (req, res) => {
+    try {
+        const blogs = await Blog.find().sort({ createdAt: -1 });
+        res.json(blogs);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+
+app.post('/api/blogs', async (req, res) => {
+    try {
+        const blog = new Blog(req.body);
+        await blog.save();
+        res.status(201).json(blog);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
 
 // --- PRODUCTS ---
 app.get('/api/products', async (req, res) => {
@@ -135,3 +222,4 @@ app.patch('/api/orders/:id/status', async (req, res) => {
 
 // Start Server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
