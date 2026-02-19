@@ -1,4 +1,4 @@
-// DATABASE CONFIGURATION
+s// DATABASE CONFIGURATION
 const APP_MODE = 'API'; // Change to 'API' for production
 const API_BASE_URL = "https://backend-jwra.onrender.com/api"; // Pointing to Render backend
 
