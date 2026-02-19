@@ -1,10 +1,20 @@
-const mongoose = require('mongoose');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
 
-const sectionSchema = new mongoose.Schema({
-    id: { type: String, required: true, unique: true },
-    name: { type: String, required: true },
-    description: String,
-    image: String
-}, { timestamps: true });
+const Section = sequelize.define('Section', {
+    id: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        allowNull: false
+    },
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    description: DataTypes.TEXT,
+    image: DataTypes.TEXT
+}, {
+    timestamps: true
+});
 
-module.exports = mongoose.model('Section', sectionSchema);
+module.exports = Section;
