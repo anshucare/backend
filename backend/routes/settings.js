@@ -4,24 +4,30 @@ const SiteSettings = require("../models/SiteSettings");
 
 // GET settings
 router.get("/", async (req, res) => {
-  let settings = await SiteSettings.findOne();
-  if (!settings) {
-    settings = new SiteSettings({});
-    await settings.save();
+  try {
+    let [settings, created] = await SiteSettings.findOrCreate({
+      where: {}, // Assuming only one record for global settings
+      defaults: {}
+    });
+    res.json(settings);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
-  res.json(settings);
 });
 
 // UPDATE settings
 router.post("/", async (req, res) => {
-  let settings = await SiteSettings.findOne();
-  if (!settings) {
-    settings = new SiteSettings(req.body);
-  } else {
-    Object.assign(settings, req.body);
+  try {
+    let settings = await SiteSettings.findOne();
+    if (!settings) {
+      settings = await SiteSettings.create(req.body);
+    } else {
+      await settings.update(req.body);
+    }
+    res.json(settings);
+  } catch (err) {
+    res.status(400).json({ message: err.message });
   }
-  await settings.save();
-  res.json(settings);
 });
 
 module.exports = router;

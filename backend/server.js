@@ -10,6 +10,7 @@ const Category = require('./models/Category');
 const Section = require('./models/Section');
 const Blog = require('./models/Blog');
 const SiteContent = require('./models/SiteContent');
+const SiteSettings = require('./models/SiteSettings');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -231,6 +232,9 @@ app.delete('/api/orders/:id', async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 });
+
+// --- SITE SETTINGS ---
+app.use('/api/settings', require('./routes/settings'));
 
 // Start Server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

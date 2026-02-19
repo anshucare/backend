@@ -1,11 +1,24 @@
-const mongoose = require("mongoose");
+const { DataTypes } = require("sequelize");
+const sequelize = require("../config/db");
 
-const siteSettingsSchema = new mongoose.Schema({
-  getInTouchTitle: String,
-  getInTouchDescription: String,
-  addressLabel: String,
-  address: String,
-  helpline: String
-}, { timestamps: true });
+const SiteSettings = sequelize.define("SiteSettings", {
+  getInTouchTitle: {
+    type: DataTypes.STRING,
+  },
+  getInTouchDescription: {
+    type: DataTypes.TEXT,
+  },
+  addressLabel: {
+    type: DataTypes.STRING,
+  },
+  address: {
+    type: DataTypes.TEXT,
+  },
+  helpline: {
+    type: DataTypes.STRING,
+  }
+}, {
+  timestamps: true
+});
 
-module.exports = mongoose.model("SiteSettings", siteSettingsSchema);
+module.exports = SiteSettings;
