@@ -8,13 +8,13 @@ Great job! Your project is now organized into two main folders for simple deploy
 
 ---
 
-## 🚀 Step 1: Deploy Backend (Render + MongoDB)
+## 🚀 Step 1: Deploy Backend (Render + PostgreSQL)
 
 1.  **Create a GitHub Repository** named `anshu-care-backend`.
 2.  Upload the contents of the `backend` folder.
 3.  **Deploy on Render**:
     *   Connect your `anshu-care-backend` repo.
-    *   Set `MONGO_URI` environment variable (from MongoDB Atlas).
+    *   Set `DATABASE_URL` environment variable (from Render PostgreSQL).
     *   Copy the backend URL (e.g., `https://anshu-backend.onrender.com`).
 
 ---

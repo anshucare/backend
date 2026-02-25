@@ -3,7 +3,7 @@
 **Project Name:** Anshu Care E-Commerce Platform
 **Version:** 1.0.0
 **Date:** October 2026
-**Tech Stack:** HTML5, CSS3, Vanilla JavaScript, Node.js, Express, MongoDB
+**Tech Stack:** HTML5, CSS3, Vanilla JavaScript, Node.js, Express, PostgreSQL / SQL
 
 ---
 
@@ -15,7 +15,7 @@ Anshu Care is a complete e-commerce solution for ayurvedic/wellness products. It
 ## 2. Architecture & Deployment
 *   **Frontend (`/frontend`)**: Static HTML/JS app hosting the customer shopping experience. Connects to Backend via API.
 *   **Admin Panel (`/admin-panel`)**: Separate dashboard for business owners to manage inventory, orders, and site appearance. Connects to Backend via API.
-*   **Backend (`/backend`)**: Node.js/Express server providing REST API endpoints and connecting to MongoDB Atlas.
+*   **Backend (`/backend`)**: Node.js/Express server providing REST API endpoints and connecting to PostgreSQL (Sequelize).
 
 ---
 
@@ -41,12 +41,12 @@ anshu-care/
 └── backend/                   # API Server
     ├── server.js              # Main Entry Point & Routes
     ├── package.json           # Dependencies
-    └── .env                   # Environment Variables (MONGO_URI)
+    └── .env                   # Environment Variables (DATABASE_URL)
 ```
 
 ---
 
-## 4. Database Schema (MongoDB)
+## 4. Database Schema (Sequelize)
 
 **Product Schema:**
 ```javascript
@@ -105,7 +105,7 @@ anshu-care/
 > **Requirements:**
 > 1.  **Frontend:** Create an `index.html` with a modern, green/gold ayurvedic theme. Include a Product Listing page that fetches data from an API. Implement a Shopping Cart using LocalStorage.
 > 2.  **Admin Panel:** Create a separate `admin.html` dashboard. Include sections for 'Products', 'Orders', and 'Appearance'. Allow admins to upload images (Base64) and change the site's primary colors.
-> 3.  **Backend:** Build a Node.js Express server with Mongoose. Create schemas for 'Product' and 'Order'. Expose REST endpoints (`GET/POST /products`, `POST /orders`).
+> 3.  **Backend:** Build a Node.js Express server with Sequelize. Create models for 'Product' and 'Order'. Expose REST endpoints (`GET/POST /products`, `POST /orders`).
 > 4.  **Deployment:** Structure the folders into `frontend` and `backend` so they can be deployed to Netlify and Render respectively.
 >
 > **Design Style:** Clean, minimal, using 'Inter' font. Colors: Deep Green (#1a3a32) and Gold (#b48c48)."
@@ -114,5 +114,5 @@ anshu-care/
 
 ## 7. Setup Instructions
 1.  **Install Node.js**.
-2.  **Backend:** Run `npm install` inside `/backend`. Create `.env` with `MONGO_URI`. Run `npm start`.
+2.  **Backend:** Run `npm install` inside `/backend`. Create `.env` with `DATABASE_URL`. Run `npm start`.
 3.  **Frontend:** Update `api.js` (or config) to point to your backend URL. Open `index.html` in browser.
